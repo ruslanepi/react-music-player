@@ -1,15 +1,16 @@
 import React from 'react'
+import { playAudio } from '../util'
 
 const LibrarySong = ({
   song,
   songs,
-  setCurentSong,
+  setCurrentSong,
   isPlaying,
   audioRef,
   setSongs,
 }) => {
   const songSelectHandler = () => {
-    setCurentSong(song)
+    setCurrentSong(song)
     // add active state
     const newSongs = songs.map((song) => {
       if (song.id === id) {
@@ -27,14 +28,7 @@ const LibrarySong = ({
     setSongs(newSongs)
 
     //
-    if (isPlaying) {
-      const playPromise = audioRef.current.play()
-      if (playPromise !== undefined) {
-        playPromise.then((audio) => {
-          audioRef.current.play()
-        })
-      }
-    }
+    playAudio(isPlaying, audioRef)
   }
   const { id, cover, name, artist } = song
   return (

@@ -7,6 +7,9 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 2px 50px rgb(197, 197, 197);
   overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  opacity: 0;
   h2 {
     padding: 2rem;
   }
@@ -22,11 +25,11 @@
     width: 30%;
   }
   &:hover {
-    background: rgb(234, 246, 250);
+    background: rgb(239, 250, 253);
   }
 
   &.active {
-    background-color: rgb(234, 246, 250);
+    background-color: rgb(219, 243, 250);
   }
 }
 
@@ -57,4 +60,9 @@
 *::-webkit-scrollbar-thumb {
   background-color: rgba(155, 155, 155, 0.5);
   border-radius: 20px;
+}
+
+.active-library {
+  transform: translateX(0);
+  opacity: 1;
 }
